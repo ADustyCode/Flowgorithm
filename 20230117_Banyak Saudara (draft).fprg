@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="UMUM"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-01-17 12:31:52 PM"/>
+        <attribute name="created" value="VU1VTTtERVNLVE9QLVY2NVA5NDg7MjAyMy0wMS0xNzsxMTozMzoxOCBBTTsyNjA3"/>
+        <attribute name="edited" value="VU1VTTtERVNLVE9QLVY2NVA5NDg7MjAyMy0wMS0xNzsxMjozMTo1MiBQTTsxOzI3Mjc="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="i, n, bukan5Lebih, semua" type="Integer" array="False" size=""/>
+            <declare name="nl, lebih" type="String" array="False" size=""/>
+            <assign variable="bukan5Lebih" expression="0"/>
+            <output expression="&quot;Masukkan banyak mahasiswa di kelas&quot;" newline="True"/>
+            <input variable="n"/>
+            <declare name="dataSaudara" type="Integer" array="True" size="n"/>
+            <for variable="i" start="1" end="n" direction="inc" step="1">
+                <output expression="&quot;Masukkan banyak saudara siswa ke-&quot; &amp; i" newline="True"/>
+                <input variable="dataSaudara[i-1]"/>
+            </for>
+            <for variable="i" start="1" end="5" direction="inc" step="1">
+                <if expression="i &gt; 4">
+                    <then>
+                        <assign variable="semua" expression="size(dataSaudara) - bukan5Lebih"/>
+                        <assign variable="lebih" expression="&quot; atau lebih&quot;"/>
+                    </then>
+                    <else>
+                        <assign variable="bukan5Lebih" expression="bukan5Lebih + 1"/>
+                        <assign variable="semua" expression="hitungSaudara(i, dataSaudara)"/>
+                        <assign variable="lebih" expression="&quot;&quot;"/>
+                    </else>
+                </if>
+                <if expression="i == 5">
+                    <then>
+                        <assign variable="nl" expression="&quot;&quot;"/>
+                    </then>
+                    <else>
+                        <assign variable="nl" expression="tochar(13)"/>
+                    </else>
+                </if>
+                <output expression="&quot;Banyak saudara &quot; &amp; i &amp; lebih &amp; &quot; ada &quot; &amp; semua &amp; &quot; orang&quot; &amp; nl" newline="False"/>
+            </for>
+        </body>
+    </function>
+    <function name="hitungSaudara" type="Integer" variable="jumlah">
+        <parameters>
+            <parameter name="berapa" type="Integer" array="False"/>
+            <parameter name="dataSaudara" type="Integer" array="True"/>
+        </parameters>
+        <body>
+            <declare name="jumlah, i" type="Integer" array="False" size=""/>
+            <assign variable="jumlah" expression="0"/>
+            <for variable="i" start="0" end="size(dataSaudara) - 1" direction="inc" step="1">
+                <if expression="dataSaudara[i] = berapa">
+                    <then>
+                        <assign variable="jumlah" expression="jumlah + 1"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+        </body>
+    </function>
+</flowgorithm>
