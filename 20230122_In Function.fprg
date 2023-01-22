@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Zeryuu Hz"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-01-22 08:44:47 PM"/>
+        <attribute name="created" value="WmVyeXV1IEh6O0xBUFRPUC0yMlNBSUVWOTsyMDIzLTAxLTIyOzA4OjQzOjE4IFBNOzMyMDg="/>
+        <attribute name="edited" value="WmVyeXV1IEh6O0xBUFRPUC0yMlNBSUVWOTsyMDIzLTAxLTIyOzA4OjQzOjU1IFBNOzI7VXNlcjtERVNLVE9QLU85QUlMNUU7MjAyMi0xMi0yNzswNy40NC4yMCBQTTtVQVMgRERQIEpVQUwgQkVMSSBLRUJVVFVIQU4gT05MSU5FLmZwcmc7ODk2Mw=="/>
+        <attribute name="edited" value="WmVyeXV1IEh6O0xBUFRPUC0yMlNBSUVWOTsyMDIzLTAxLTIyOzA4OjQ0OjQ3IFBNOzE7MzMxOQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body/>
+    </function>
+    <function name="in" type="None" variable="">
+        <parameters>
+            <parameter name="text" type="String" array="False"/>
+            <parameter name="target" type="String" array="False"/>
+        </parameters>
+        <body>
+            <declare name="i, j, stop" type="Integer" array="False" size=""/>
+            <declare name="ada" type="Boolean" array="False" size=""/>
+            <assign variable="stop" expression="0"/>
+            <assign variable="ada" expression="false"/>
+            <assign variable="j" expression="0"/>
+            <for variable="i" start="0" end="len(text) - 1" direction="inc" step="1">
+                <if expression="stop == 1">
+                    <then/>
+                    <else>
+                        <if expression="j == len(target)">
+                            <then>
+                                <assign variable="stop" expression="1"/>
+                            </then>
+                            <else>
+                                <if expression="char(text, i) == char(target, j)">
+                                    <then>
+                                        <assign variable="j" expression="j + 1"/>
+                                    </then>
+                                    <else>
+                                        <assign variable="j" expression="0"/>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </for>
+            <if expression="j &lt; len(target)">
+                <then>
+                    <assign variable="ada" expression="false"/>
+                </then>
+                <else>
+                    <assign variable="ada" expression="true"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
